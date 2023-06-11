@@ -42,8 +42,10 @@ const App = () => {
   };
 
   const formatTime = (time) => {
-    const formattedTime = (time / 1000).toFixed(3);
-    return formattedTime;
+    const milliseconds = `00${time % 1000}`.slice(-3);
+    const seconds = `0${Math.floor((time / 1000) % 60)}`.slice(-2);
+    const minutes = `0${Math.floor((time / 60000) % 60)}`.slice(-2);
+    return `${minutes}:${seconds}.${milliseconds}`;
   };
 
   return (
